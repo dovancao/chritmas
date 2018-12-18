@@ -84,6 +84,11 @@ class App extends Component {
         nameOfUrl: "Trung Kiên",
         imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/46967642_1114079565419143_294401780299595776_n.jpg?_nc_cat=109&_nc_ht=scontent.fhan2-3.fna&oh=93d86204fa6770886f4699f155559d0b&oe=5CACF770",
         sex: 'male'
+      }, 
+      {
+        nameOfUrl: "Hong-Cam Dinh",
+        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/47305801_1661642310608974_6528741299447660544_n.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=e048a73a45ca1d32926675f800260b6f&oe=5C8EE405",
+        sex: 'female'
       }
     ]
   }
@@ -94,9 +99,15 @@ class App extends Component {
     })
   }
 
-  changeLastView = () => {
+  change2ndView = () => {
     this.setState ({
       click_id: 3
+    })
+  }
+
+  changeLastView = () => {
+    this.setState ({
+      click_id: 4
     })
   }
 
@@ -133,7 +144,7 @@ class App extends Component {
       nameOfPartner: rest_info[random_people].nameOfUrl,
       imageSrc: image,
       object: last_partner,
-      click_id: 3
+      click_id: 4
     });
   }
 
@@ -191,11 +202,25 @@ class App extends Component {
             </ListGroupItem>
           </ListGroup>
           <h1 className="kreep">
+            <button className="button" onClick={this.change2ndView}>Bốc thăm</button>
+          </h1>
+        </div>
+      )
+    } else if (this.state.click_id === 3) {
+      mHTML = (
+        <div>
+          <ul>
+            <li>Sau bạn được điều hướng đến trang bốc thăm hãy nhập chính xác tên facebook của bạn vào để thuật toán của chúng ta hoạt động một cách chính xác nhất</li>
+            <li>Sau đó click vào nút "Bốc thăm màu xanh "</li>
+            <li>Nếu ảnh người bạn ngẫu nhiên tặng quà không hiện lên hãy ấn nút "Bốc thăm màu xanh 1 lần nữa"</li>
+            <li className="bold">Nghiêm cấm click vào nút bốc thăm 3 lần</li>
+          </ul>
+          <h1 className="kreep">
             <button className="button" onClick={this.changeLastView}>Bốc thăm</button>
           </h1>
         </div>
       )
-    } else {
+    }else {
       mHTML = (
         <div>
           <div className="image-partner">
