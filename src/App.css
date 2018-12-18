@@ -98,3 +98,7 @@ animation: none;
   font-weight: bold;
   color: red;
 }
+
+.nextView {
+  margin-top: 5%;
+}
