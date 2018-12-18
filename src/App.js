@@ -154,9 +154,6 @@ class App extends Component {
     } else if (this.state.click_id === 2) {
       mHTML = (
         <div>
-          <h1 className="kreep">
-            <button className="button" onClick={this.changeLastView}>Bốc thăm</button>
-          </h1>
           <ListGroup className="list-group">
             <ListGroupItem color="success">
               Mục đích
@@ -209,7 +206,7 @@ class App extends Component {
                 <input 
                   type="text" 
                   name="ten" 
-                  placeholder="Tên của bạn( không cần họ và đệm)"
+                  placeholder="Tên facebook của bạn"
                   onChange={this.changeText}  
                 >
                 </input>
