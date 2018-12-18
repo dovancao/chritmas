@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import { 
+  ListGroup, 
+  ListGroupItem
+} from 'reactstrap';
 
 class App extends Component {
 
@@ -26,6 +29,11 @@ class App extends Component {
         sex: 'male'
       },
       {
+        nameOfUrl: "Phạm Trung Hiếu",
+        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/27332190_1779471125439163_8755815381811131652_n.jpg?_nc_cat=108&_nc_ht=scontent.fhan2-3.fna&oh=381f58bac6fbf6b70245a5a32d457d11&oe=5C91B7AF",
+        sex: 'male'
+      },
+      {
         nameOfUrl: "Hatter Minh",
         imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-0/p206x206/23435080_895684483931414_6852120739085013102_n.jpg?_nc_cat=109&_nc_ht=scontent.fhan2-3.fna&oh=ea5830ad373be6e526bf0031980f7fb1&oe=5C9B0675",
         sex: 'female'
@@ -41,11 +49,6 @@ class App extends Component {
         sex: 'male'
       },
       {
-        nameOfUrl: "Minh Phương",
-        imageURL: "https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/38733842_550001365402955_155246403277291520_o.jpg?_nc_cat=110&_nc_ht=scontent.fhan2-4.fna&oh=d999cce320a5b8f7d7fcc89cd9dc46d5&oe=5CA1B351",
-        sex: 'female'
-      },
-      {
         nameOfUrl: "Ngoc Dziep",
         imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-1/c127.442.1229.1229a/s960x960/48332734_2036581983105873_8374731888379559936_o.jpg?_nc_cat=108&_nc_ht=scontent.fhan2-3.fna&oh=a1fc45543583400d00804a50be6b2024&oe=5CA30A7F",
         sex: 'female'
@@ -59,6 +62,21 @@ class App extends Component {
         nameOfUrl: "Quỳnh Hương",
         imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/40077546_1166716010143650_2356182370974957568_o.jpg?_nc_cat=107&_nc_ht=scontent.fhan2-3.fna&oh=82700405c45dd3b91890eac81d464d03&oe=5C9DFB7C",
         sex: 'female'
+      },
+      {
+        nameOfUrl: "Quỳnh Hương",
+        imageURL: "https://scontent.fhan2-4.fna.fbcdn.net/v/t31.0-8/27788804_1010718075743445_833960215954620069_o.jpg?_nc_cat=104&_nc_ht=scontent.fhan2-4.fna&oh=654a2fef3c911f2e155a06e56de6f329&oe=5C9487D4",
+        sex: "female"
+      },
+      {
+        nameOfUrl: "Phuong Thu Nguyen",
+        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/38132815_1851659174913488_7375010462766727168_n.jpg?_nc_cat=107&_nc_ht=scontent.fhan2-3.fna&oh=68d8d2b0166f758b3caba2c80c32de7e&oe=5C9A66FF",
+        sex: "female"
+      },
+      {
+        nameOfUrl: "Thùy Trang",
+        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-0/p206x206/41475890_2362976433930059_8497472686375567360_n.jpg?_nc_cat=108&_nc_ht=scontent.fhan2-3.fna&oh=7638be52992023479d1c834eace503a5&oe=5C91A1FB",
+        sex: "female"
       },
       {
         nameOfUrl: "Phuong Thu Nguyen",
@@ -89,6 +107,11 @@ class App extends Component {
         nameOfUrl: "Hong-Cam Dinh",
         imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/47305801_1661642310608974_6528741299447660544_n.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=e048a73a45ca1d32926675f800260b6f&oe=5C8EE405",
         sex: 'female'
+      },
+      {
+        nameOfUrl: "Quang Quang",
+        imageURL: "https://scontent.fhan5-2.fna.fbcdn.net/v/t1.0-9/16831209_711042695741078_5332471114307472872_n.jpg?_nc_cat=110&_nc_ht=scontent.fhan5-2.fna&oh=4e70e9cfa0ff70815e9b625284ad8d39&oe=5CAA071E",
+        sex: 'male'
       }
     ]
   }
@@ -130,6 +153,7 @@ class App extends Component {
     let rest_info = this.state.object.filter((imageInfo) => {
       return imageInfo.nameOfUrl !== image_info[0].nameOfUrl && imageInfo.sex !== image_info[0].sex
     })
+
     /// lay random 1 phan tu trong rest_info
     let maxlength = rest_info.length;
     let random_people = Math.floor(Math.random() * maxlength);
@@ -140,12 +164,17 @@ class App extends Component {
     });
     let image =  rest_info[random_people].imageURL;
     
-    this.setState ({
-      nameOfPartner: rest_info[random_people].nameOfUrl,
-      imageSrc: image,
-      object: last_partner,
-      click_id: 4
-    });
+    if (image !== null) {
+      this.setState ({
+        nameOfPartner: rest_info[random_people].nameOfUrl,
+        imageSrc: image,
+        object: last_partner,
+        click_id: 4
+      });
+    } else {
+      alert('Oops, hết người để tặng quà rùi')
+    }
+    
   }
 
   render() {
