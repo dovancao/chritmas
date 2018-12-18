@@ -214,6 +214,8 @@ class App extends Component {
             <li>Sau đó click vào nút "Bốc thăm màu xanh "</li>
             <li>Nếu ảnh người bạn ngẫu nhiên tặng quà không hiện lên hãy ấn nút "Bốc thăm màu xanh 1 lần nữa"</li>
             <li className="bold">Nghiêm cấm click vào nút bốc thăm 3 lần</li>
+            <li className="bold">Người tiếp theo sẽ không thể chọn được người tặng quà nếu bạn bấm quá nhiều</li>
+            <li className="bold">Điều này ảnh hưởng trực tiếp đến game của chúng ta</li>
           </ul>
           <h1 className="kreep">
             <button className="button" onClick={this.changeLastView}>Bốc thăm thôi</button>
