@@ -202,7 +202,7 @@ class App extends Component {
             </ListGroupItem>
           </ListGroup>
           <h1 className="kreep">
-            <button className="button" onClick={this.change2ndView}>Bốc thăm</button>
+            <button className="button" onClick={this.change2ndView}>Mình đã hiểu :D</button>
           </h1>
         </div>
       )
@@ -216,7 +216,7 @@ class App extends Component {
             <li className="bold">Nghiêm cấm click vào nút bốc thăm 3 lần</li>
           </ul>
           <h1 className="kreep">
-            <button className="button" onClick={this.changeLastView}>Bốc thăm</button>
+            <button className="button" onClick={this.changeLastView}>Bốc thăm thôi</button>
           </h1>
         </div>
       )
