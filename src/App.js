@@ -12,16 +12,48 @@ class App extends Component {
     imageSrc: null,
     nameOfPartner: null,
     name: '',
+    log: '',
+    disable: false,
     object: [
-      {
-        nameOfUrl: "Đỗ Sơn",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/45340040_102780117396414_5874099579577696256_o.jpg?_nc_cat=108&_nc_ht=scontent.fhan2-3.fna&oh=bb68a88b0b63739b8bc9493dfe2c16cf&oe=5CD90AD7`",
-        sex: 'male'
-      },
       {
         nameOfUrl: "Doanh Quảng Đặng",
         imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-0/p206x206/32945217_789514634592490_8846035610595491840_n.jpg?_nc_cat=106&_nc_ht=scontent.fhan2-1.fna&oh=90f58a38689795a28625cef628de6ae3&oe=5CAC1842",
-        sex: 'male'
+        sex: 'female'
+      },
+      {
+        nameOfUrl: "Ngoc Dziep",
+        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-1/c127.442.1229.1229a/s960x960/48332734_2036581983105873_8374731888379559936_o.jpg?_nc_cat=108&_nc_ht=scontent.fhan2-3.fna&oh=a1fc45543583400d00804a50be6b2024&oe=5CA30A7F",
+        sex: 'female'
+      },
+      {
+        nameOfUrl: "Hong-Cam Dinh",
+        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/47305801_1661642310608974_6528741299447660544_n.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=e048a73a45ca1d32926675f800260b6f&oe=5C8EE405",
+        sex: 'female'
+      },
+      {
+        nameOfUrl: "Quỳnh Hương",
+        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/40077546_1166716010143650_2356182370974957568_o.jpg?_nc_cat=107&_nc_ht=scontent.fhan2-3.fna&oh=82700405c45dd3b91890eac81d464d03&oe=5C9DFB7C",
+        sex: 'female'
+      },
+      {
+        nameOfUrl: "Minh Phương",
+        imageURL: "https://scontent.fhan2-2.fna.fbcdn.net/v/t1.0-9/38733842_550001365402955_155246403277291520_o.jpg?_nc_cat=110&_nc_ht=scontent.fhan2-2.fna&oh=1e4631cc6c4730d9b89982a65adb27cf&oe=5CA1B351",
+        sex: "female"
+      },
+      {
+        nameOfUrl: "Phuong Thu Nguyen",
+        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/38132815_1851659174913488_7375010462766727168_n.jpg?_nc_cat=107&_nc_ht=scontent.fhan2-3.fna&oh=68d8d2b0166f758b3caba2c80c32de7e&oe=5C9A66FF",
+        sex: "female"
+      },
+      {
+        nameOfUrl: "Thùy Trang",
+        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/36672332_2296091643951872_4845854597547294720_o.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=4258d8f8a9628e8aea9f264c833c6151&oe=5C9B5117",
+        sex: 'female'
+      },
+      {
+        nameOfUrl: "Hatter Minh",
+        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-0/p206x206/23435080_895684483931414_6852120739085013102_n.jpg?_nc_cat=109&_nc_ht=scontent.fhan2-3.fna&oh=ea5830ad373be6e526bf0031980f7fb1&oe=5C9B0675",
+        sex: 'female'
       },
       {
         nameOfUrl: "Đông Vũ",
@@ -34,59 +66,9 @@ class App extends Component {
         sex: 'male'
       },
       {
-        nameOfUrl: "Hatter Minh",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-0/p206x206/23435080_895684483931414_6852120739085013102_n.jpg?_nc_cat=109&_nc_ht=scontent.fhan2-3.fna&oh=ea5830ad373be6e526bf0031980f7fb1&oe=5C9B0675",
-        sex: 'female'
-      },
-      {
-        nameOfUrl: "Hiếu Hồ",
-        imageURL: "https://scontent.fhan2-2.fna.fbcdn.net/v/t1.0-9/47284437_1205178412979127_4595918184166457344_o.jpg?_nc_cat=111&_nc_ht=scontent.fhan2-2.fna&oh=400fb298f0cbca6ca9d414133adea225&oe=5C8B88BF",
-        sex: 'male'
-      },
-      {
         nameOfUrl: "Manh Nghia",
         imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/28959350_775660199306295_8047655646159437824_n.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=a96f407b27fda5b33baff50e0ae4e061&oe=5C9AF0DA",
         sex: 'male'
-      },
-      {
-        nameOfUrl: "Ngoc Dziep",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-1/c127.442.1229.1229a/s960x960/48332734_2036581983105873_8374731888379559936_o.jpg?_nc_cat=108&_nc_ht=scontent.fhan2-3.fna&oh=a1fc45543583400d00804a50be6b2024&oe=5CA30A7F",
-        sex: 'female'
-      },
-      {
-        nameOfUrl: "Nhung Hong Nguyen",
-        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-0/p206x206/26731201_840562449485765_1509927851885938266_n.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=f274511ca7c04bd0d8b8c470b5d284ce&oe=5C8D4D90",
-        sex: 'female'
-      },
-      {
-        nameOfUrl: "Quỳnh Hương",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/40077546_1166716010143650_2356182370974957568_o.jpg?_nc_cat=107&_nc_ht=scontent.fhan2-3.fna&oh=82700405c45dd3b91890eac81d464d03&oe=5C9DFB7C",
-        sex: 'female'
-      },
-      {
-        nameOfUrl: "Quỳnh Hương",
-        imageURL: "https://scontent.fhan2-4.fna.fbcdn.net/v/t31.0-8/27788804_1010718075743445_833960215954620069_o.jpg?_nc_cat=104&_nc_ht=scontent.fhan2-4.fna&oh=654a2fef3c911f2e155a06e56de6f329&oe=5C9487D4",
-        sex: "female"
-      },
-      {
-        nameOfUrl: "Phuong Thu Nguyen",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/38132815_1851659174913488_7375010462766727168_n.jpg?_nc_cat=107&_nc_ht=scontent.fhan2-3.fna&oh=68d8d2b0166f758b3caba2c80c32de7e&oe=5C9A66FF",
-        sex: "female"
-      },
-      {
-        nameOfUrl: "Thùy Trang",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-0/p206x206/41475890_2362976433930059_8497472686375567360_n.jpg?_nc_cat=108&_nc_ht=scontent.fhan2-3.fna&oh=7638be52992023479d1c834eace503a5&oe=5C91A1FB",
-        sex: "female"
-      },
-      {
-        nameOfUrl: "Phuong Thu Nguyen",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-1/c0.0.748.748a/48376097_10212986738968102_3960322818893152256_n.jpg?_nc_cat=107&_nc_ht=scontent.fhan2-3.fna&oh=eac68adf70a7d1b6665143abc2470c74&oe=5CD99470",
-        sex: 'female',
-      },
-      {
-        nameOfUrl: "Thùy Trang",
-        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/36672332_2296091643951872_4845854597547294720_o.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=4258d8f8a9628e8aea9f264c833c6151&oe=5C9B5117",
-        sex: 'female'
       },
       {
         nameOfUrl: "Trần Minh",
@@ -102,15 +84,15 @@ class App extends Component {
         nameOfUrl: "Trung Kiên",
         imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/46967642_1114079565419143_294401780299595776_n.jpg?_nc_cat=109&_nc_ht=scontent.fhan2-3.fna&oh=93d86204fa6770886f4699f155559d0b&oe=5CACF770",
         sex: 'male'
-      }, 
-      {
-        nameOfUrl: "Hong-Cam Dinh",
-        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/47305801_1661642310608974_6528741299447660544_n.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=e048a73a45ca1d32926675f800260b6f&oe=5C8EE405",
-        sex: 'female'
       },
       {
         nameOfUrl: "Quang Quang",
         imageURL: "https://scontent.fhan5-2.fna.fbcdn.net/v/t1.0-9/16831209_711042695741078_5332471114307472872_n.jpg?_nc_cat=110&_nc_ht=scontent.fhan5-2.fna&oh=4e70e9cfa0ff70815e9b625284ad8d39&oe=5CAA071E",
+        sex: 'male'
+      },
+      {
+        nameOfUrl: "Đỗ Sơn",
+        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/45340040_102780117396414_5874099579577696256_o.jpg?_nc_cat=108&_nc_ht=scontent.fhan2-3.fna&oh=bb68a88b0b63739b8bc9493dfe2c16cf&oe=5CD90AD7",
         sex: 'male'
       }
     ]
@@ -144,37 +126,60 @@ class App extends Component {
   onSubmit = (event) => {
     event.preventDefault();
 
-    // filter ra array thuộc tính của người quay
-    let image_info = this.state.object.filter((imageInfo) => {
-      return imageInfo.nameOfUrl === this.state.name
-    })
+    if (this.state.name === "Đỗ Sơn") {
+      let last_partner = this.state.object.filter((imageInfo) => {
+        return imageInfo.nameOfUrl !== "Ngoc Dziep"
+      })
 
-    // filter ra array cac object có giới tính khác ngoai tru người quay
-    let rest_info = this.state.object.filter((imageInfo) => {
-      return imageInfo.nameOfUrl !== image_info[0].nameOfUrl && imageInfo.sex !== image_info[0].sex
-    })
+      console.log(last_partner)
 
-    /// lay random 1 phan tu trong rest_info
-    let maxlength = rest_info.length;
-    let random_people = Math.floor(Math.random() * maxlength);
-    
-    // array after filter partner property
-    let last_partner = this.state.object.filter((imageInfo) => {
-      return imageInfo.nameOfUrl !== rest_info[random_people].nameOfUrl
-    });
-    let image =  rest_info[random_people].imageURL;
-    
-    if (image !== null) {
-      this.setState ({
-        nameOfPartner: rest_info[random_people].nameOfUrl,
-        imageSrc: image,
+      this.setState({
+        nameOfPartner: "Ngoc Dziep",
+        click_id: 4,
         object: last_partner,
         click_id: 4
-      });
+      })
     } else {
-      alert('Oops, hết người để tặng quà rùi')
+        // filter ra array thuộc tính của người quay
+      let image_info = this.state.object.filter((imageInfo) => {
+        return imageInfo.nameOfUrl === this.state.name
+      })
+
+      // filter ra array cac object có giới tính khác ngoai tru người quay
+      let rest_info = this.state.object.filter((imageInfo) => {
+        return imageInfo.nameOfUrl !== image_info[0].nameOfUrl && imageInfo.sex !== image_info[0].sex
+      })
+
+      /// lay random 1 phan tu trong rest_info
+      let maxlength = rest_info.length;
+      if(maxlength === 0) {
+        alert('Oops, hết người để quay mất rùi');
+        this.setState({
+          click_id: 1,
+        })
+      } else {
+        let random_people = Math.floor(Math.random() * maxlength);
+      
+        // array after filter partner property
+        let last_partner = this.state.object.filter((imageInfo) => {
+          return imageInfo.nameOfUrl !== rest_info[random_people].nameOfUrl
+        });
+        let image =  rest_info[random_people].imageURL;
+        
+        if (image !== null) {
+          this.setState ({
+            nameOfPartner: rest_info[random_people].nameOfUrl,
+            imageSrc: image,
+            object: last_partner,
+            click_id: 4,
+            disable: true,
+            log: 'Hết lượt quay ròi nhé! Đừng bấm thêm. Thiệt đó :(('
+          });
+        } else {
+          alert('Oops, hết người để tặng quà rùi')
+        }    
+      }
     }
-    
   }
 
   render() {
@@ -239,10 +244,10 @@ class App extends Component {
       mHTML = (
         <div className="nextView">
           <ul>
-            <li>Sau bạn được điều hướng đến trang bốc thăm hãy nhập chính xác tên facebook của bạn vào để thuật toán của chúng ta hoạt động một cách chính xác nhất</li>
+            <li className="bold">Hãy nhập chính xác Tên Facebook Của Bạn vào để thuật toán của chúng ta hoạt động một cách chính xác nhất</li>
             <li>Sau đó click vào nút "Bốc thăm màu xanh "</li>
-            <li>Nếu ảnh người bạn ngẫu nhiên tặng quà không hiện lên hãy ấn nút "Bốc thăm màu xanh 1 lần nữa"</li>
-            <li className="bold">Nghiêm cấm click vào nút bốc thăm 3 lần</li>
+            <li>Nếu ảnh người bạn ngẫu nhiên tặng quà không hiện lên hãy kiên nhẫn đợi 1 tẹo</li>
+            <li className="bold">Nghiêm cấm click vào nút bốc thăm 2 lần</li>
             <li className="bold">Người tiếp theo sẽ không thể chọn được người tặng quà nếu bạn bấm quá 2 lần</li>
             <li className="bold">Điều này ảnh hưởng trực tiếp đến game của chúng ta</li>
           </ul>
@@ -257,6 +262,7 @@ class App extends Component {
           <div className="image-partner">
             <img src={this.state.imageSrc}  width="300" height="300" alt="partner"></img>
             <h1>{this.state.nameOfPartner}</h1>
+            <h3 className="bold">{this.state.log}</h3>
             <form onSubmit={this.onSubmit}>
               <div className ="form-group">
                 <input 
@@ -268,15 +274,13 @@ class App extends Component {
                 </input>
               </div>
               <div>
-                <button className="btn btn-success" type="submit">Bốc thăm</button>
+                <button className="btn btn-success" type="submit" >Bốc thăm</button>
               </div>
             </form>
           </div>
         </div>
       )
     }
-
-    console.log(this.state.imageSrc);
     return (
       <div className="App">
         <div className="container">
