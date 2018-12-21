@@ -16,85 +16,15 @@ class App extends Component {
     disable: false,
     object: [
       {
-        nameOfUrl: "Doanh Quảng Đặng",
-        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-0/p206x206/32945217_789514634592490_8846035610595491840_n.jpg?_nc_cat=106&_nc_ht=scontent.fhan2-1.fna&oh=90f58a38689795a28625cef628de6ae3&oe=5CAC1842",
+        nameOfUrl: "Hoa Nguyễn",
+        imageURL: "https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/26196083_1748847951815741_8336836029835251358_n.jpg?_nc_cat=104&_nc_ht=scontent.fhan2-4.fna&oh=cf16c6d1bb193fc8958497c010f65eb7&oe=5CA145C6",
         sex: 'female'
       },
       {
-        nameOfUrl: "Ngoc Dziep",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-1/c127.442.1229.1229a/s960x960/48332734_2036581983105873_8374731888379559936_o.jpg?_nc_cat=108&_nc_ht=scontent.fhan2-3.fna&oh=a1fc45543583400d00804a50be6b2024&oe=5CA30A7F",
-        sex: 'female'
-      },
-      {
-        nameOfUrl: "Hong-Cam Dinh",
-        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/47305801_1661642310608974_6528741299447660544_n.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=e048a73a45ca1d32926675f800260b6f&oe=5C8EE405",
-        sex: 'female'
-      },
-      {
-        nameOfUrl: "Quỳnh Hương",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/40077546_1166716010143650_2356182370974957568_o.jpg?_nc_cat=107&_nc_ht=scontent.fhan2-3.fna&oh=82700405c45dd3b91890eac81d464d03&oe=5C9DFB7C",
-        sex: 'female'
-      },
-      {
-        nameOfUrl: "Minh Phương",
-        imageURL: "https://scontent.fhan2-2.fna.fbcdn.net/v/t1.0-9/38733842_550001365402955_155246403277291520_o.jpg?_nc_cat=110&_nc_ht=scontent.fhan2-2.fna&oh=1e4631cc6c4730d9b89982a65adb27cf&oe=5CA1B351",
-        sex: "female"
-      },
-      {
-        nameOfUrl: "Phuong Thu Nguyen",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/38132815_1851659174913488_7375010462766727168_n.jpg?_nc_cat=107&_nc_ht=scontent.fhan2-3.fna&oh=68d8d2b0166f758b3caba2c80c32de7e&oe=5C9A66FF",
-        sex: "female"
-      },
-      {
-        nameOfUrl: "Thùy Trang",
-        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/36672332_2296091643951872_4845854597547294720_o.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=4258d8f8a9628e8aea9f264c833c6151&oe=5C9B5117",
-        sex: 'female'
-      },
-      {
-        nameOfUrl: "Hatter Minh",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-0/p206x206/23435080_895684483931414_6852120739085013102_n.jpg?_nc_cat=109&_nc_ht=scontent.fhan2-3.fna&oh=ea5830ad373be6e526bf0031980f7fb1&oe=5C9B0675",
-        sex: 'female'
-      },
-      {
-        nameOfUrl: "Đông Vũ",
-        imageURL: "https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/47378641_2415043392056696_829413302172909568_o.jpg?_nc_cat=104&_nc_ht=scontent.fhan2-4.fna&oh=800c85e9e913b7337fbb823a9e0eb632&oe=5C9ECE8F",
+        nameOfUrl: "Trần Khôi",
+        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/47382829_2343174032584230_259707786101784576_o.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=ef58d4a2974f5559e661a2d76b9c416d&oe=5C9FB50B",
         sex: 'male'
       },
-      {
-        nameOfUrl: "Phạm Trung Hiếu",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/27332190_1779471125439163_8755815381811131652_n.jpg?_nc_cat=108&_nc_ht=scontent.fhan2-3.fna&oh=381f58bac6fbf6b70245a5a32d457d11&oe=5C91B7AF",
-        sex: 'male'
-      },
-      {
-        nameOfUrl: "Manh Nghia",
-        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/28959350_775660199306295_8047655646159437824_n.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=a96f407b27fda5b33baff50e0ae4e061&oe=5C9AF0DA",
-        sex: 'male'
-      },
-      {
-        nameOfUrl: "Trần Minh",
-        imageURL: "https://scontent.fhan2-2.fna.fbcdn.net/v/t1.0-9/40104088_1083641795133021_6245545350816333824_n.jpg?_nc_cat=110&_nc_ht=scontent.fhan2-2.fna&oh=29a1f218d3a78aaee092c28ec45123c8&oe=5CA27253",
-        sex: 'male'
-      },
-      {
-        nameOfUrl: "Trong Manh",
-        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/46090960_1645681042203182_6547016836263706624_n.jpg?_nc_cat=106&_nc_ht=scontent.fhan2-1.fna&oh=18609da6d3767c0f2f6281919c54d5bb&oe=5C8FEA45",
-        sex: 'male'
-      },
-      {
-        nameOfUrl: "Trung Kiên",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/46967642_1114079565419143_294401780299595776_n.jpg?_nc_cat=109&_nc_ht=scontent.fhan2-3.fna&oh=93d86204fa6770886f4699f155559d0b&oe=5CACF770",
-        sex: 'male'
-      },
-      {
-        nameOfUrl: "Quang Quang",
-        imageURL: "https://scontent.fhan5-2.fna.fbcdn.net/v/t1.0-9/16831209_711042695741078_5332471114307472872_n.jpg?_nc_cat=110&_nc_ht=scontent.fhan5-2.fna&oh=4e70e9cfa0ff70815e9b625284ad8d39&oe=5CAA071E",
-        sex: 'male'
-      },
-      {
-        nameOfUrl: "Đỗ Sơn",
-        imageURL: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/45340040_102780117396414_5874099579577696256_o.jpg?_nc_cat=108&_nc_ht=scontent.fhan2-3.fna&oh=bb68a88b0b63739b8bc9493dfe2c16cf&oe=5CD90AD7",
-        sex: 'male'
-      }
     ]
   }
 
