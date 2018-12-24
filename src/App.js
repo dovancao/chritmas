@@ -1,221 +1,110 @@
 import React, { Component } from 'react';
 import './App.css';
-import { 
-  ListGroup, 
-  ListGroupItem
+import {
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption
 } from 'reactstrap';
 
+import huong4 from './huong4.png'
+import huong3 from './huong3.png'
+import huong2 from './huong2.png'
+import huong1 from './huong1.png'
+import huong5 from './huong5.png'
+
+const items = [
+  {
+    src: 'https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/48991435_130843331256759_7494471378922373120_o.jpg?_nc_cat=107&_nc_ht=scontent.fhan2-3.fna&oh=7586da72378918639825c55366ea6e9f&oe=5C8D9CF5',
+    altText: 'Slide 1',
+    caption: 'Slide 1'
+  },
+  {
+    src: 'https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/48411716_130843277923431_2804120092416147456_o.jpg?_nc_cat=109&_nc_ht=scontent.fhan2-3.fna&oh=c06326e2f1c783ecab5a346cdb87b079&oe=5CCF8EFD',
+    altText: 'Slide 2',
+    caption: 'Slide 2'
+  },
+  {
+    src: 'https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/48422956_130843307923428_398604004797448192_o.jpg?_nc_cat=101&_nc_ht=scontent.fhan2-1.fna&oh=0d76c3404222cc6a73a88a3e9c4d613c&oe=5C9F44C3',
+    altText: 'Slide 3',
+    caption: 'Slide 3'
+  },
+  {
+    src: 'https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-9/48412538_130843347923424_539953989848924160_o.jpg?_nc_cat=107&_nc_ht=scontent.fhan2-3.fna&oh=18d112f45516a0e76cb345c379bad987&oe=5C9F7151',
+    altText: 'Slide 3',
+    caption: 'Slide 3'
+  },
+  {
+    src: "https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/48416987_130843297923429_4145772578952183808_o.jpg?_nc_cat=100&_nc_ht=scontent.fhan2-4.fna&oh=9d4c76bdbd2ffad9e0d4be0dd06bbcba&oe=5CD014DA",
+    altText: 'Slide 3',
+    caption: 'Slide 3'
+  }
+];
+
 class App extends Component {
-
-  state = {
-    click_id: 1,
-    imageSrc: null,
-    nameOfPartner: null,
-    name: '',
-    log: '',
-    disable: false,
-    object: [
-      {
-        nameOfUrl: "Hoa Nguyễn",
-        imageURL: "https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/26196083_1748847951815741_8336836029835251358_n.jpg?_nc_cat=104&_nc_ht=scontent.fhan2-4.fna&oh=cf16c6d1bb193fc8958497c010f65eb7&oe=5CA145C6",
-        sex: 'female'
-      },
-      {
-        nameOfUrl: "Trần Khôi",
-        imageURL: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/47382829_2343174032584230_259707786101784576_o.jpg?_nc_cat=103&_nc_ht=scontent.fhan2-1.fna&oh=ef58d4a2974f5559e661a2d76b9c416d&oe=5C9FB50B",
-        sex: 'male'
-      },
-    ]
+  constructor(props) {
+    super(props);
+    this.state = { activeIndex: 0 };
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+    this.goToIndex = this.goToIndex.bind(this);
+    this.onExiting = this.onExiting.bind(this);
+    this.onExited = this.onExited.bind(this);
   }
 
-  changeNextView = () => {
-    this.setState ({
-      click_id: 2
-    })
+  onExiting() {
+    this.animating = true;
   }
 
-  change2ndView = () => {
-    this.setState ({
-      click_id: 3
-    })
+  onExited() {
+    this.animating = false;
   }
 
-  changeLastView = () => {
-    this.setState ({
-      click_id: 4
-    })
+  next() {
+    if (this.animating) return;
+    const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
+    this.setState({ activeIndex: nextIndex });
   }
 
-  changeText = (event) => {
-    console.log(event.target.value);
-    this.setState({
-      name: event.target.value,
-    })
+  previous() {
+    if (this.animating) return;
+    const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
+    this.setState({ activeIndex: nextIndex });
   }
 
-  onSubmit = (event) => {
-    event.preventDefault();
-
-    if (this.state.name === "Đỗ Sơn") {
-      let last_partner = this.state.object.filter((imageInfo) => {
-        return imageInfo.nameOfUrl !== "Ngoc Dziep"
-      })
-
-      console.log(last_partner)
-
-      this.setState({
-        nameOfPartner: "Ngoc Dziep",
-        click_id: 4,
-        object: last_partner,
-        click_id: 4
-      })
-    } else {
-        // filter ra array thuộc tính của người quay
-      let image_info = this.state.object.filter((imageInfo) => {
-        return imageInfo.nameOfUrl === this.state.name
-      })
-
-      // filter ra array cac object có giới tính khác ngoai tru người quay
-      let rest_info = this.state.object.filter((imageInfo) => {
-        return imageInfo.nameOfUrl !== image_info[0].nameOfUrl && imageInfo.sex !== image_info[0].sex
-      })
-
-      /// lay random 1 phan tu trong rest_info
-      let maxlength = rest_info.length;
-      if(maxlength === 0) {
-        alert('Oops, hết người để quay mất rùi');
-        this.setState({
-          click_id: 1,
-        })
-      } else {
-        let random_people = Math.floor(Math.random() * maxlength);
-      
-        // array after filter partner property
-        let last_partner = this.state.object.filter((imageInfo) => {
-          return imageInfo.nameOfUrl !== rest_info[random_people].nameOfUrl
-        });
-        let image =  rest_info[random_people].imageURL;
-        
-        if (image !== null) {
-          this.setState ({
-            nameOfPartner: rest_info[random_people].nameOfUrl,
-            imageSrc: image,
-            object: last_partner,
-            click_id: 4,
-            disable: true,
-            log: 'Hết lượt quay ròi nhé! Đừng bấm thêm. Thiệt đó :(('
-          });
-        } else {
-          alert('Oops, hết người để tặng quà rùi')
-        }    
-      }
-    }
+  goToIndex(newIndex) {
+    if (this.animating) return;
+    this.setState({ activeIndex: newIndex });
   }
 
   render() {
-    let mHTML;
+    const { activeIndex } = this.state;
 
-    if(this.state.click_id === 1) {
-      mHTML = (
-        <div>
-          <div className="image-top">
-            <img src={require('./santa.png')} width="300" height="300" alt="santa"></img>
-          </div>
-          <h1 className="kreep">
-            <button className="button" onClick={this.changeNextView}>All I Want For Christmas Is US</button>
-          </h1>
-      </div>
-      )
-    } else if (this.state.click_id === 2) {
-      mHTML = (
-        <div>
-          <ListGroup className="list-group">
-            <ListGroupItem color="success">
-              Mục đích
-              <ul>
-                <li>Tạo cơ hội cho mọi người tìm hiểu nhau và gắn kết mọi người hơn</li>
-                <li>Một phần không thể thiếu trong đêm giáng sinh là quà - những món quà ý nghĩa, bất ngờ từ những người bạn bất ngờ, sẽ là điều không thể quên trong đêm cuối năm 2018</li>
-                <li>Mọi người có khoảng thời gian vui vẻ, xúc động và hồi hộp, hứa hẹn sẽ là một kỷ niệm vô cùng đáng nhớ!</li>
-              </ul>
-            </ListGroupItem>
-            <ListGroupItem color="info">
-              Mọi người có 1 tuần để chuẩn bị quà, dự kiến game diễn ra trong khoảng 1 tiếng
-            </ListGroupItem>
-            <ListGroupItem color="warning">
-              Luật chơi
-              <ul>
-                <li>Tất cả mọi người xác nhận tham gia X-Mas Party sẽ có tên trong các lá thăm, lá thăm sẽ đảo ngẫu nhiên và mỗi người sẽ rút một lá</li>
-                <li>Ai rút được tên người nào thì sẽ có nhiệm vụ tặng cho người đó một món quà vào X-Mas Night</li>
-                <li>Tất cả mọi người phải GIỮ BÍ MẬT TUYỆT ĐỐI về lá thăm mà mình rút được, về món quà mà mình chọn mua. Không ai được biết ai tặng quà gì cho ai, hoặc ai bốc được tên ai. Nếu để lộ thì người đó sẽ bị loại khỏi game.</li>
-                <li>Vào X-Mas Night, thời khắc chia quà cũng đến. Tất cả quà sẽ được chất tại một vị trí thật đẹp. Từng người sẽ lên tìm món quà đề tên mình, hồi hộp bóc quà, nêu cảm nghĩ về món quà (khen, chê, khóc, cười, kể chuyện...) </li>
-                <li>Tiếp theo phải ĐOÁN ra được ai là người tặng món quà đó cho mình.</li>
-                <li>Nếu bạn đoán sai, sẽ chẳng sao/hoặc chịu một hình phạt do mọi người nghĩ ra</li>
-                <li>Bất kể bạn đoán là ai, thì giây phút quan trọng là người tặng quà cho bạn cũng sẽ lộ diện và hai bạn có thể trao nhau một chiếc hug thật nồng ấm trong sự bất ngờ (kiss, hay gì cũng được tùy các bạn thích).</li>
-                <li>Sau đó người tặng quà cho bạn sẽ phải trải lòng lý do lại chọn món quà đó cho bạn, và chúc bạn thêm, nếu muốn.</li>
-              </ul>
-            </ListGroupItem>
-            <ListGroupItem color="danger">
-              Một số lưu ý
-              <ul>
-                <li>Món quà hợp lệ: Được gói và bọc kín đáo, để lúc bóc ra cho hấp dẫn và hồi hộp :)) Nhớ đề tên người nhận quà lên trên vỏ hộp quà nhé, không ai biết quà nào của ai đâu!</li>
-                <li>Trong quá trình từng người lên đoán xem ai tặng quà mình, các thành viên còn lại được phép chém gió đánh lạc hướng để người đoán đoán sai</li>
-                <li>Do các bạn tự nghiên cứu partner của mình, tự chọn mua. Không giới hạn về mặt giá trị. Khăn, tất, bánh, thẻ game,... cái gì cũng có thể là quà!</li>
-                <li>Đây là game để mọi người có cơ hội tìm hiểu nhau thêm. Một khi đã join game, chúc các bạn dành thời gian để tìm được món quà thật ý nghĩa tặng cho đối tượng của mình! Và chúc bạn cũng sẽ nhận được một món quà hết sức ý nghĩa từ ai đó</li>
-                <li>Game mang tính hấp dẫn, hồi hộp, vậy nên điều quan trọng nhất là MỌI THỨ PHẢI BÍ MẬT TỜI PHÚT CHÓT! Mong tất cả sẽ tôn trọng luật chơi, để có thể có một X-Mas game thật thành công và nhiều điều bất ngờ nhé!</li>
-              </ul>
-            </ListGroupItem>
-          </ListGroup>
-          <h1 className="kreep">
-            <button className="button" onClick={this.change2ndView}>Mình đã hiểu :D</button>
-          </h1>
-        </div>
-      )
-    } else if (this.state.click_id === 3) {
-      mHTML = (
-        <div className="nextView">
-          <ul>
-            <li className="bold">Hãy nhập chính xác Tên Facebook Của Bạn vào để thuật toán của chúng ta hoạt động một cách chính xác nhất</li>
-            <li>Sau đó click vào nút "Bốc thăm màu xanh "</li>
-            <li>Nếu ảnh người bạn ngẫu nhiên tặng quà không hiện lên hãy kiên nhẫn đợi 1 tẹo</li>
-            <li className="bold">Nghiêm cấm click vào nút bốc thăm 2 lần</li>
-            <li className="bold">Người tiếp theo sẽ không thể chọn được người tặng quà nếu bạn bấm quá 2 lần</li>
-            <li className="bold">Điều này ảnh hưởng trực tiếp đến game của chúng ta</li>
-          </ul>
-          <h1 className="kreep">
-            <button className="button" onClick={this.changeLastView}>Bốc thăm thôi</button>
-          </h1>
-        </div>
-      )
-    }else {
-      mHTML = (
-        <div>
-          <div className="image-partner">
-            <img src={this.state.imageSrc}  width="300" height="300" alt="partner"></img>
-            <h1>{this.state.nameOfPartner}</h1>
-            <h3 className="bold">{this.state.log}</h3>
-            <form onSubmit={this.onSubmit}>
-              <div className ="form-group">
-                <input 
-                  type="text" 
-                  name="ten" 
-                  placeholder="Tên facebook của bạn"
-                  onChange={this.changeText}  
-                >
-                </input>
-              </div>
-              <div>
-                <button className="btn btn-success" type="submit" >Bốc thăm</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )
-    }
+    const slides = items.map((item) => {
+      return (
+        <CarouselItem
+          onExiting={this.onExiting}
+          onExited={this.onExited}
+          key={item.src}
+        >
+          <img src={item.src} alt={item.altText} />
+        </CarouselItem>
+      );
+    });
+
     return (
-      <div className="App">
-        <div className="container">
-          {mHTML}
-        </div>
+      <div className="container">
+        <Carousel
+          activeIndex={activeIndex}
+          next={this.next}
+          previous={this.previous}
+        >
+          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+          {slides}
+          <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+          <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+        </Carousel>
       </div>
     );
   }
